@@ -77,7 +77,7 @@ def register(request):
             return render(request,'register.html')
     return render(request,'register.html')
  
-
+@login_required
 def create(request):
     if request.method == "POST":
         title = request.POST.get('ttl')
@@ -90,18 +90,20 @@ def create(request):
         return render(request, 'createtodo.html')
     return render(request,'createtodo.html')
 
-
+@login_required
 def todolist(request):
     user_details = Register.objects.get(Users=request.user)
     Todo = todo.objects.filter(User_details= user_details)
     return render(request,'list.html',context={'todo':Todo})
 
-
+@login_required
 def completed_todo(request):
     user_details = Register.objects.get(Users=request.user)
     Todo = todo.objects.filter(User_details= user_details,Completed = True)
     return render(request, 'completed_todo.html',context={'todo':Todo})
 
+
+@login_required
 def edit(request,pk):
     print(pk)
     if request.method == "GET":
@@ -115,6 +117,7 @@ def delete(request,pk):
     messages.success(request,'Successfully deleted todo.')
     return redirect('todolist')
 
+@login_required
 def edit_todo(request):
     if request.method == "POST":
         id_v = request.POST.get('id_val')
