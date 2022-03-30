@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}
+Home Page
+{% endblock title %}
+{% block body %}
+
+<style>
+    body  
+  {  
+  margin: 0;  
+  padding: 0;  
+  background-color:#f5f1f3ba;  
+  font-family: 'Arial';  
+  }  
+.login{  
+      width: 382px;  
+      overflow: hidden;  
+      margin: auto;  
+      margin: 20 0 0 450px;  
+      padding: 80px;  
+      background: #23463f;  
+      border-radius: 15px ;  
+        
+    }  
+  </style>
+    <br>
+    {% if messages %}
+    {% for message in messages %} 
+    <div {% if message.tags %} class="alert alert-{{ message.tags }} alert-dismissible fade show" {% endif %} role="alert">
+        <strong>{{ message }}</strong> 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {% endfor %}
+    {% endif %}
+  
+    <br>
+<div class="login" align="center">    
+    <form  method="post" action="{% url 'login' %}">   
+      {% csrf_token %} 
+        <input type="text" name="Uname" placeholder="username"/><br><br>
+        <input type="password" name="Pass" placeholder="password"/><br><br>
+        <div align="center">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" >login</button><br>
+
+        </div>
+      </form>
+</div>    
+{% endblock body %}

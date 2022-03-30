@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}
+Completed
+{% endblock title %}
+
+{% block body %}
+<div class="container">
+    <br>
+    
+        <h2 align="center">
+            Completed List
+        </h2>
+    
+    <div class="container">
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Created Date</th>
+                    <th scope="col">Completed Date</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in todo %}
+            <tr>
+                
+                <th scope="row">{{i.id}}</th>
+                <td>{{i.Title}}</td>
+                <td>{{i.Create_time}}</td>
+                <td>{{i.Completion_date}}</td>
+                <td>
+                    <a href="delete/{{i.id}}">
+                        <button type="button" class="btn-danger">Delete</button>
+                    </a>
+                </td>
+
+            </tr>
+            {% endfor %}
+            
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock body %}

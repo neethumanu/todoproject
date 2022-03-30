@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% block title %}
+Register 
+{% endblock title %}
+
+{% block body %}
+
+    <br>
+<form method='post' action= "{% url 'register' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                 Name 
+            </div>
+            <div class="col-sm-6">
+                  <input class='form-control' name='name' type='text'>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-6">
+                Phone Number 
+            </div>
+            <div class="col-sm-6">
+                  <input class='form-control' name='p_num' type='number'>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-6">
+                Address 
+            </div>
+            <div class="col-sm-6">
+                  <input class='form-control' name='add' type='text'>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-6">
+                Date Of Birth 
+            </div>
+            <div class="col-sm-6">
+                  <input class='form-control' name='dob' type='date'>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-6">
+                 Profile Pic 
+            </div>
+            <div class="col-sm-6">
+                  <input class='form-control' name='pic' type='file'>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-6">
+                Email 
+            </div>
+            <div class="col-sm-6">
+                  <input class='form-control' name='eml' type='email'>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-6">
+                Password
+            </div> 
+            <div class="col-sm-6">
+                  <input class='form-control' name='pswd' type='password'>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-6">
+                 Confirm Password 
+            </div>
+            <div class="col-sm-6">
+                  <input class='form-control' name='pswd1' type='password'>
+            </div>
+        </div>
+        <br>
+        <div align='center'>
+        <input type='submit' class="btn btn-outline-success" value="Register">
+        </div>       
+    </div>
+</form>
+    <br><br>
+{% endblock body %}
